@@ -8,8 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @SpringBootApplication(scanBasePackages = "com.init.index")
 @MapperScan("com.init.index")
-public class IndexApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(IndexApplication.class , args);
+        SpringApplication.run(Application.class , args);
     }
 }

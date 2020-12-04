@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * */
 @Repository
 @Mapper
-public interface iIndexMapper {
+public interface Dao {
 
 }

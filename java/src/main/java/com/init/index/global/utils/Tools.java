@@ -4,9 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 public class Tools {
     /**
@@ -27,8 +25,7 @@ public class Tools {
                 InetAddress inet = null;
                 try {
                     inet = InetAddress.getLocalHost();
-                }
-                catch (UnknownHostException e) {
+                } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
                 ipAddress = inet.getHostAddress();
@@ -36,7 +33,7 @@ public class Tools {
         }
         if (ipAddress != null && ipAddress.length() > 15) { //"***.***.***.***".length() = 15
             if (ipAddress.indexOf(",") > 0) {
-                ipAddress = ipAddress.substring(0 , ipAddress.indexOf(","));
+                ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
             }
         }
         return ipAddress;
@@ -46,7 +43,7 @@ public class Tools {
      * 功能:生成(min,max)之间的随机数
      * */
 
-    public static long getRandom(int max , int min) {
+    public static long getRandom(int max, int min) {
         return Math.abs((long) (Math.random() * (max - min) + min));
     }
 
@@ -65,9 +62,8 @@ public class Tools {
 
     public static String getId() {
         UUID uuid = UUID.randomUUID();
-        return uuid.toString().replace("-" , "");
+        return uuid.toString().replace("-", "");
     }
-
 
     /*
        功能:生成数字UUID

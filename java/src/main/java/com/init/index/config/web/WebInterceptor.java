@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Slf4j
+//@Slf4j
 public class WebInterceptor implements HandlerInterceptor {
 
     /*
@@ -18,10 +18,6 @@ public class WebInterceptor implements HandlerInterceptor {
      * */
     @Override
     public boolean preHandle(HttpServletRequest request , HttpServletResponse response , Object handler) {
-        AbstractApplicationContext ac = (AbstractApplicationContext) SpringContextUtil.getApplicationContext();
-        String remoteAddr = Tools.getRemoteAddr(request);
-        RedisUtil jedis = ac.getBean(RedisUtil.class);
-        jedis.sadd("pv" , remoteAddr);
         return true;
     }
 }

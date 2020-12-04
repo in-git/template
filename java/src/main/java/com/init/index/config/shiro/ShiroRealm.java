@@ -2,8 +2,6 @@ package com.init.index.config.shiro;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
-import com.init.index.bean.Users;
-import com.init.index.module.user.mapper.iPermsMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
@@ -17,6 +15,7 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -30,11 +29,6 @@ public class ShiroRealm extends AuthorizingRealm {
         super.setCredentialsMatcher(matcher);
     }
 
-    @Autowired
-    com.init.index.mapper.iUserMapper iUserMapper;
-
-    @Autowired
-    iPermsMapper permsMapper;
     /*
      * 功能:给用户授权
      * 注意:授权是在验证之后进行的
@@ -42,15 +36,12 @@ public class ShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection token) {
 
-        String username = (String)token.getPrimaryPrincipal();
-        QueryWrapper<Users> wrapper = new QueryWrapper<>();
-        wrapper.eq("username", username);
-        Users user = iUserMapper.selectOne(wrapper);
+        String username = (String) token.getPrimaryPrincipal();
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        if(!StringUtils.isEmpty(user)){
-            List<String> strings = permsMapper.selectPerms(username);
-            info.addStringPermissions(strings);
+        if (!StringUtils.isEmpty("")) {
+//            List<String> strings = permsMapper.selectPerms(username);
+            info.addStringPermissions(new ArrayList<>());
         }
 
         return info;
@@ -62,16 +53,12 @@ public class ShiroRealm extends AuthorizingRealm {
      * */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String username = (String)token.getPrincipal();
-        QueryWrapper<Users> wrapper = new QueryWrapper<>();
-        wrapper.eq("username", username);
-        Users user = iUserMapper.selectOne(wrapper);
-        if(StringUtils.isEmpty(user)){
+        String username = (String) token.getPrincipal();
+        if (StringUtils.isEmpty("")) {
 
             throw new UnknownAccountException();
         }
-        String salt = user.getSalt();
-        return new SimpleAuthenticationInfo(username, user.getPasswd(), ByteSource.Util.bytes(salt), this.getName());
+        return new SimpleAuthenticationInfo(username, "password", ByteSource.Util.bytes("salt"), this.getName());
     }
 
 

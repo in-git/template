@@ -1,7 +1,5 @@
 package com.init.index.config.error;
 
-import com.init.index.global.attribute.result.ResultInfo;
-import com.init.index.global.attribute.result.eStatusSystem;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -15,6 +13,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class Error {
     @ExceptionHandler(value = {Exception.class})
     public Object handleOtherExceptions(final Exception ex) {
-        return new ResultInfo(eStatusSystem.ERROR_DATABASE.getStatus() , eStatusSystem.ERROR_DATABASE.getMsg());
+        return null;
     }
 }

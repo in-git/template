@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 //  必须配置该注解,默认关闭
-@Component
+//@Component
 public class ShiroConfig {
 
     //  创建ShiroFilterFactoryBean

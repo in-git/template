@@ -1,12 +1,8 @@
 package com.init.index.module.index.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.init.index.bean.Users;
-import com.init.index.global.attribute.result.ResultInfo;
-import com.init.index.global.attribute.result.eStatusSystem;
 import com.init.index.global.utils.common.Tools;
-import com.init.index.mapper.iUserMapper;
-import com.init.index.module.index.action.Action;
+import com.init.index.module.index.mapper.Dao;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -17,51 +13,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 
-/*
- * 功能:统一服务管理,实现Action接口
- * */
 @org.springframework.stereotype.Service
 
 @Slf4j
-public class Service implements Action {
+public class Service {
 
     @Autowired
-    iUserMapper mapper;
+    Dao mapper;
+    /*
+     * 用户登录配置
+     * */
 
-
-    @Override
-    public ResultInfo login(Users user , String rememberMe) {
+    public void login(Object user, String rememberMe) {
         Subject subject = SecurityUtils.getSubject();
         //        开启记住我
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername() , user.getPasswd() , rememberMe);
+        UsernamePasswordToken token = new UsernamePasswordToken("username", "passwd", rememberMe);
         try {
             subject.login(token);
+        } catch (Exception ex) {
+            log.error("登录失败");
         }
-        catch (Exception ex) {
-            return new ResultInfo(eStatusSystem.ERROR_SELECT.getStatus() , eStatusSystem.ERROR_SELECT.getMsg() , null);
-        }
-        return new ResultInfo(eStatusSystem.SUCCESS_SELECT.getStatus() , "登录成功" , null);
+
     }
 
     /*
      * 功能:用户注册加密，并存储到数据库中
      * */
-    @Override
-    public ResultInfo register(Users user) {
-        QueryWrapper<Users> wrapper = new QueryWrapper<>();
-        wrapper.eq("username" , user.getUsername());
-        Users users = mapper.selectOne(wrapper);
-        if (StringUtils.isEmpty(users)) {
+    public void register(Object user) {
+//        从数据库查询User数据
+        if (StringUtils.isEmpty("user")) {
             String salt = new SecureRandomNumberGenerator().nextBytes().toHex();
             String key = Tools.getId();
-            user.setUkey(key);
-            String password = user.getPasswd();
-            String ciphertext = new Md5Hash(password , salt , 3).toString();
-            user.setSalt(String.valueOf(salt));
-            user.setPasswd(ciphertext);
-            mapper.insert(user);
-            return new ResultInfo(eStatusSystem.SUCCESS_INSERT.getStatus() , eStatusSystem.SUCCESS_INSERT.getMsg() , null);
+//            user.setUkey(key);
+//            String password = user.getPasswd();
+            String ciphertext = new Md5Hash("password", "salt", 3).toString();
+//            user.setSalt(String.valueOf(salt));
+//            user.setPasswd(ciphertext);//设置密码
+//            mapper.insert(user);  //添加到数据库
         }
-        return new ResultInfo(eStatusSystem.ERROR_INSERT.getStatus() , "添加失败" , null);
     }
 }
