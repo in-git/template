@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<!-- Vuetify -->
+		<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+
+
+		<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+		<!-- Bootstrap 会和Vuetify 产生样式冲突，建议只用一个-->
+		<!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap-grid.css" rel="stylesheet"> -->
+
+		<!-- Font-Awesome -->
+		<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+
+		<!-- 交互CSS样式 -->
+		<link rel="stylesheet" href="./public/css/interaction.css">
+
+		<!-- 改动后的Bootstrap 不会和Vuetify产生冲突 -->
+		<link rel="stylesheet" href="public/css/bootstrap.css">
+		<!-- ElementUI -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+		<!-- Vuetify -->
+
+		<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+		<!-- AXIOS -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+		<!-- Jquery -->
+		<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script> -->
+
+		<!-- 通用JS函数 -->
+		<script src="./public/js/common.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- 元信息标签 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Init</title>
+	</head>
+	<body>
+
+		<!-- 
+			这里使用了Vuetify的环境
+		-->
+
+		<div id="app">
+			<template>
+				<v-app id="inspire">
+					<v-navigation-drawer v-model="drawer" app>
+						<v-list dense>
+							<v-list-item link>
+								<v-list-item-action>
+									<v-icon>mdi-home</v-icon>
+								</v-list-item-action>
+								<v-list-item-content>
+									<v-list-item-title>主页</v-list-item-title>
+								</v-list-item-content>
+							</v-list-item>
+
+						</v-list>
+					</v-navigation-drawer>
+
+					<v-app-bar app dark>
+						<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+						<v-toolbar-title>管理中心</v-toolbar-title>
+					</v-app-bar>
+
+					<v-main>
+
+						<v-container class="fill-height" fluid>
+							<v-row align="center" justify="center">
+								<v-col cols=12>
+									<div class="display-1 text-center">
+										权限开发公用模板
+									</div>
+								</v-col>
+								<v-col cols=12 xl=6 md=8>
+									<v-expansion-panels popout>
+										<v-expansion-panel class="mt-2">
+											<v-expansion-panel-header>本页说明</v-expansion-panel-header>
+											<v-expansion-panel-content>
+												<div>
+													<p>
+														<small>
+															<a href="https://github.com/6byte/init" target="_blank">github地址，点击访问</a>
+														</small>
+													</p>
+													<p>
+														<small>
+															删减模块，不会对整体结构造成任何影响
+														</small>
+													</p>
+													<p>
+														<small>
+															文件结构清晰，轻松定位bug
+														</small>
+													</p>
+													<p>
+														<small class="purple--text">
+															规范结构 <暂不公开>
+														</small>
+													</p>
+													<p>
+														<div>
+															<el-image :src="url" :preview-src-list="srcList">
+															</el-image>
+														</div>
+													</p>
+												</div>
+
+
+											</v-expansion-panel-content>
+										</v-expansion-panel>
+									</v-expansion-panels>
+									<v-expansion-panels popout>
+										<v-expansion-panel class="mt-2">
+											<v-expansion-panel-header>登录注册</v-expansion-panel-header>
+											<v-expansion-panel-content>
+												<!-- 注册 -->
+												<div class="text-center">
+													<v-dialog v-model="dialog" width="500">
+														<template v-slot:activator="{ on, attrs }">
+															<div>
+																<p>
+																	<small>唯一最高权限:
+																		<small>账号</small>
+																		<span class="purple--text">admin</span>
+																		<small>密码</small>
+																		<span class="purple--text">admin1234</span>
+																	</small>
+																</p>
+																<v-btn color="red lighten-2" dark v-on="on">注册&登录</v-btn>
+															</div>
+														</template>
+
+														<v-card>
+															<!-- 标题 -->
+															<v-card-title class="headline grey lighten-2" primary-title>登录注册</v-card-title>
+															<!-- 内容 -->
+															<v-card-text>
+																<template>
+																	<v-form ref="form" v-model="valid" lazy-validation>
+																		<v-text-field :counter="10" maxlength="10" label="名字" :rules="rules" v-model="user.username"></v-text-field>
+																		<v-text-field :counter="20" maxlength="20" label="密码" type="password" :rules="rules" v-model="user.passwd"></v-text-field>
+																		<!-- 记住我 -->
+																		<v-checkbox v-model="user.rememberMe" label="记住我"></v-checkbox>
+																		<div class="d-flex justify-content-between">
+																			<v-btn :disabled="!valid" color="success" @click="validate">
+																				注册
+																			</v-btn>
+																			<v-btn :disabled="!valid" color="info" @click="validate(0)">
+																				登录
+																			</v-btn>
+																		</div>
+																	</v-form>
+																</template>
+
+															</v-card-text>
+														</v-card>
+													</v-dialog>
+												</div>
+
+											</v-expansion-panel-content>
+										</v-expansion-panel>
+									</v-expansion-panels>
+									<v-expansion-panels popout>
+										<v-expansion-panel class="mt-2">
+											<v-expansion-panel-header>后台说明</v-expansion-panel-header>
+											<v-expansion-panel-content>
+												<p><small>Config目录包含</small><small class="purple--text">Aop，Druid，Redis，Mvc相关，Shiro权限，统一错误管理</small></p>
+												<p><small>Global目录包含</small><small class="purple--text">通用类、响应信息、以及通用工具</small></p>
+												<p><small>Module目录包含</small><small class="purple--text">页面逻辑</small></p>
+												<p><small>Bean目录包含</small><small class="purple--text">通用数据库属性</small></p>
+											</v-expansion-panel-content>
+										</v-expansion-panel>
+									</v-expansion-panels>
+								</v-col>
+							</v-row>
+						</v-container>
+					</v-main>
+					<v-footer color="black " app>
+						<span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+					</v-footer>
+				</v-app>
+			</template>
+		</div>
+
+
+		<script type="text/javascript">
+			let vm = new Vue({
+				el: '#app',
+				vuetify: new Vuetify(),
+				data: {
+					drawer: false,
+					dialog: false,
+					rules: [
+						value => !!value || '必须填写.',
+					],
+					user: {
+						username: '',
+						passwd: '',
+						rememberMe: false
+					},
+					valid: true,
+					url: 'https://byte-project.oss-cn-beijing.aliyuncs.com/init/index/img/KR5%5B_F3G%5D%7B7U%5D%2895B%5DJ0WK1.png',
+					srcList: [
+						'https://byte-project.oss-cn-beijing.aliyuncs.com/init/index/img/KR5%5B_F3G%5D%7B7U%5D%2895B%5DJ0WK1.png',
+					]
+				},
+				methods: {
+					// 登录注册
+					validate(flag) {
+						this.$refs.form.validate()
+						let userData = {
+							username: this.user.username,
+							passwd: this.user.passwd,
+							rememberMe: this.user.rememberMe
+						}
+						// 注册
+						if (!!flag) {
+							axios.get('/public/register', {
+								params: userData
+							}).then(data => {
+								this.$message(data.data.sys_msg || "本地响应")
+								this.dialog = false
+							}).catch(err => {
+								this.$message("错误")
+							})
+						}
+						// 登录
+						else {
+							axios.get('/public/login', {
+								params: userData
+							}).then(data => {
+								this.dialog = false
+								if (data.data.sys_status == 10) {
+									window.location.href = "/user/user.html"
+								}
+								else{
+									this.$message("登录失败")
+								}
+							}).catch(err => {
+								this.$message("错误")
+							})
+						}
+					},
+				}
+			})
+		</script>
+	</body>
+
+</html>
