@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sixbyte</groupId>
-    <artifactId>managerment</artifactId>
+    <artifactId>bean</artifactId>
     <version>beta</version>
     <name>managerment</name>
     <description>shop</description>
@@ -191,6 +191,34 @@
             <version>1.2.58</version>
         </dependency>
 
+
+        <!-- -·-·-·-·-·-
+           JWTya验证
+       -·-·-·-·- -->
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.10.7</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.10.7</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.10.7</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
     </dependencies>
 
     <build>
