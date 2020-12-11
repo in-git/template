@@ -17,20 +17,21 @@
         <java.version>1.8</java.version>
 
         <!-- 为解决Eclipse Unknown Error 而降低版本号-->
-        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <!-- <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version> -->
     </properties>
 
     <dependencies>
-
         <!-- 
             打包成war包需要引入的依赖
             不使用的时候去掉
          -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <!-- 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <scope>provided</scope>
+            </dependency> 
+        -->
 
         <!-- Springboot核心依赖 -->
         <dependency>
@@ -47,10 +48,12 @@
         <!-- -·-·-·-·-·-
            websocket
         -·-·-·-·-·- -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
+        <!-- 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
+            </dependency> 
+         -->
 
         <!-- -·-·-·-·-·-
         Spring aop核心依赖
@@ -143,11 +146,13 @@
         </dependency>
 
         <!-- Mybatis 驱动连接 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+        <!-- 
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+            </dependency> 
+        -->
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -172,14 +177,23 @@
             <version>1.2.10</version>
         </dependency>
 
+        <!-- SqlServer连接 -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>4.0</version>
+        </dependency>
+
         <!-- -·-·-·-·-·-
             德鲁伊
         -·-·-·-·-·- -->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.1.8</version>
         </dependency>
+
 
         <!-- Lombok -->
         <dependency>
@@ -187,7 +201,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-
 
 
         <!-- -·-·-·-·-·-

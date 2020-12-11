@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
-@Component
+// @Component
 @CrossOrigin
 @ServerEndpoint ( value = "/websocket/{userId}" )
 public class WebSocket {
