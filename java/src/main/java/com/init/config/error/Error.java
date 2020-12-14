@@ -1,7 +1,6 @@
 package com.init.config.error;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /*
  * 功能:统一异常处理

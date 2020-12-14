@@ -3,6 +3,9 @@ package com.init.module.index.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.init.module.index.bean.Users;
+
 
 /*
  *   说明:非Class类型
@@ -15,6 +18,4 @@ import org.springframework.stereotype.Repository;
  * */
 @Repository
 @Mapper
-public interface Dao {
-
-}
+public interface UserDao extends BaseMapper<Users> {}
