@@ -1,10 +1,11 @@
-package com.init.config.shiro;
+package com.company.config.shiro;
 
 //  需要单独导入这个包，否则报错
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.DefaultSessionManager;
@@ -22,14 +23,16 @@ import org.springframework.stereotype.Component;
 //  必须配置该注解,默认关闭
 @Component
 public class ShiroConfig {
+	
 
-// 常用拦截器	anon,authc,authcBasic,perms,port,rest,roles,ssl,user
+// 常用拦截器	anon , authc ,perms, port ,rest ,roles , ssl ,user
 	@Bean
 	public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
 		ShiroFilterFactoryBean shiro = new ShiroFilterFactoryBean();
 		shiro.setSecurityManager(securityManager);
 		Map<String, String> filter = new LinkedHashMap<String, String>();
-		filter.put("/auth/**", "user");
+		filter.put("/public/**", "anon");
+		filter.put("/order/**", "anon");
 		filter.put("/**", "anon");
 
 		shiro.setFilterChainDefinitionMap(filter);
@@ -62,7 +65,13 @@ public class ShiroConfig {
 	public RedisSessionDAO redisSessionDAO() {
 		RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
 		redisSessionDAO.setRedisManager(redisManager());
+		redisSessionDAO.setSessionIdGenerator(new CustomSessionIdGenerator());
 		return redisSessionDAO;
+	}
+
+	@Bean
+	public CacheManager shiroRedisCacheManager() {
+		return new RedisCacheManager();
 	}
 
 	/**
@@ -73,6 +82,7 @@ public class ShiroConfig {
 		CustomSessionManager manager = new CustomSessionManager();
 		manager.setSessionDAO(redisSessionDAO());
 		manager.setSessionIdCookieEnabled(false);
+		manager.setSessionValidationSchedulerEnabled(false);
 		// 禁用url 重写 url; shiro请求时默认 jsessionId=id
 		manager.setSessionIdUrlRewritingEnabled(false);
 		return manager;

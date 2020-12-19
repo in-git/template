@@ -1,13 +1,32 @@
-package com.init.global.utils;
+package com.company.utils;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 public class IdUtils {
 	private static String middle = "";
+	private static long orderNum = 0l;
+	private static String date;
+
+	/** 
+	 * 生成订单编号 
+	 */
+	public static synchronized String getOrderNo() {
+		String str = new SimpleDateFormat("yyMMddHHmm").format(new Date());
+		if (date == null || !date.equals(str)) {
+			date = str;
+			orderNum = 0l;
+		}
+		orderNum++;
+		long orderNo = Long.parseLong((date)) * 10000;
+		orderNo += orderNum;
+		return orderNo + "";
+	}
 
 	static {
 		middle = MathUtils.makeUpNewData(Math.abs(NetworkUtils.getHostIP().hashCode()) + "", 4) + // 4位IP地址hash
@@ -48,6 +67,7 @@ public class IdUtils {
 	public static String getRandomIdByUUID() {
 		return DigestUtils.md5Hex(UUID.randomUUID().toString());
 	}
+
 	/** 字符串MD5处理类 */
 	private static class DigestUtils {
 
@@ -107,8 +127,7 @@ public class IdUtils {
 	}
 
 	/*
-	 * ---------------------------------------------分割线-----------------------------
-	 * -------------------
+	 * ----------------- 分割线 -----------------
 	 */
 	/** 数据处理的相关类 */
 	private static class MathUtils {

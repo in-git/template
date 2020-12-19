@@ -1,4 +1,4 @@
-package com.init.config.shiro;
+package com.company.config.shiro;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -27,6 +27,7 @@ public class JwtUtil {
 	 * @param token 密钥
 	 * @return 是否正确
 	 */
+
 	public static boolean verify(String token) {
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
@@ -40,7 +41,6 @@ public class JwtUtil {
 
 	/**
 	 * 获得token中的信息无需secret解密也能获得
-	 * 
 	 * @return token中包含的用户名
 	 */
 	public static String parseByTag(String token, String tag) {
@@ -54,9 +54,6 @@ public class JwtUtil {
 
 	/**
 	 * 获取登陆用户ID
-	 * 
-	 * @param token
-	 * @return
 	 */
 	public static String getUserId(String token) {
 		try {
@@ -69,10 +66,9 @@ public class JwtUtil {
 
 	/**
 	 * 生成签名,15min后过期
-	 * 
-	 * @return 加密的token
+	 * authToken:原 SessionID
 	 */
-	public static String generator(HashMap<String,String> map) {
+	public static String generator(String account, String authToken) {
 		try {
 //            过期时间
 			Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
@@ -85,8 +81,7 @@ public class JwtUtil {
 			// 附带用户信息，生成签名
 			return JWT.create().withHeader(header)
 					// 要往token中存储的东西
-					.withClaim("username", map.get("username"))
-					.withExpiresAt(date).sign(algorithm);
+					.withClaim("info", account).withClaim("authToken", authToken).withExpiresAt(date).sign(algorithm);
 		} catch (UnsupportedEncodingException e) {
 			return null;
 		}

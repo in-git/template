@@ -1,4 +1,4 @@
-package com.init.config.web;
+package com.company.config.web;
 
 import java.io.IOException;
 
@@ -9,12 +9,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Component;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Component
+//@Component
 public class WebFilter implements javax.servlet.Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,6 +23,7 @@ public class WebFilter implements javax.servlet.Filter {
         /*
         * 功能:在前后端分离项目中，前端会发送options请求试探，使用该过滤器过滤该请求
         * */
+    	
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin" , "*");
         response.setHeader(
@@ -38,6 +37,7 @@ public class WebFilter implements javax.servlet.Filter {
             chain.doFilter(req , res);
         }
         catch (Exception ex){
+        	System.out.println(ex.toString());
             log.warn("用户权限校验失败");
         }
     }

@@ -1,4 +1,4 @@
-package com.init.config.shiro;
+package com.company.config.shiro;
 
 import java.io.Serializable;
 
@@ -13,18 +13,16 @@ import org.springframework.util.StringUtils;
 
 @Component
 public class CustomSessionManager extends DefaultWebSessionManager {
-	final private static  String AUTHORIZATION = "authToken";
+	final private static String AUTHORIZATION = "authToken";
+//	final private static String AUTHORIZATION = "id";
 
-	final private static  String REFERENCED_SESSION_ID_SOURCE = "header";
+	final private static String REFERENCED_SESSION_ID_SOURCE = "header";
 
 	@Override
-	protected Serializable getSessionId( ServletRequest request,  ServletResponse response) {
-		// 返回session Id
-		 String id = WebUtils.toHttp(request).getHeader(AUTHORIZATION);
-		System.out.println("id：" + id);
+	protected Serializable getSessionId(ServletRequest request, ServletResponse response) {
+		// 获取请求头中的authToken
+		String id = WebUtils.toHttp(request).getHeader(AUTHORIZATION);
 		if (StringUtils.isEmpty(id)) {
-			// 如果没有携带id参数则按照父类的方式在cookie进行获取
-			System.out.println("super：" + super.getSessionId(request, response));
 			return super.getSessionId(request, response);
 		} else {
 			// 如果请求头中有 authToken 则其值为sessionId
