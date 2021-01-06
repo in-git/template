@@ -1,4 +1,4 @@
-package com.company.config.plugin;
+package com.init.config.plugin;
 
 import java.util.Date;
 
@@ -24,13 +24,13 @@ public class MybatisConfig implements MetaObjectHandler {
 
 
 	@Override
-	public void insertFill(MetaObject metaObject) {
-		this.setFieldValByName("createTime",new Date(),metaObject);
-        this.setFieldValByName("updateTime",new Date(),metaObject);
+	public void insertFill(final MetaObject metaObject) {
+		this.setFieldValByName("createTime", new Date(), metaObject);
+		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 
 	@Override
-	public void updateFill(MetaObject metaObject) {
+	public void updateFill(final MetaObject metaObject) {
 		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 

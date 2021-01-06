@@ -1,4 +1,4 @@
-package com.company.utils;
+package com.init.utils;
 
 import java.util.Random;
 import java.util.UUID;

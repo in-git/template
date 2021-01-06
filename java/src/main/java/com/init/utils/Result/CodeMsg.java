@@ -1,4 +1,4 @@
-package com.company.utils.Result;
+package com.init.utils.Result;
 
 public class CodeMsg {  
     private int retCode;  

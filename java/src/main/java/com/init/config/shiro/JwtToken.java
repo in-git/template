@@ -1,4 +1,4 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 

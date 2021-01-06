@@ -10,8 +10,8 @@
     <groupId>com.company</groupId>
     <artifactId>project</artifactId>
     <version>beta</version>
-    <name>managerment</name>
-    <description>description</description>
+    <name>Spring Program</name>
+    <description>Spring 基础项目搭建</description>
 
     <properties>
         <java.version>1.8</java.version>

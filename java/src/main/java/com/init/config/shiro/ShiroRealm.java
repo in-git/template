@@ -1,4 +1,4 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,13 +11,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
-import com.company.module.customer.bean.CustomerAccount;
-import com.company.module.customer.mapper.MapperCustomer;
 
 public class ShiroRealm extends AuthorizingRealm {
-
-	@Autowired
-	MapperCustomer loginMapper;
 
 //	@Override
 //	public boolean supports(AuthenticationToken token) {
@@ -41,12 +36,13 @@ public class ShiroRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		String username = (String) token.getPrincipal();
-		CustomerAccount accounts = loginMapper.selectAccountByMobile(username);
-		if (StringUtils.isEmpty(accounts)) {
-			throw new UnknownAccountException();
-		}
-		return new SimpleAuthenticationInfo(accounts, accounts.getPasswd(), this.getName());
+		// String username = (String) token.getPrincipal();
+		// CustomerAccount accounts = loginMapper.selectAccountByMobile(username);
+		// if (StringUtils.isEmpty(accounts)) {
+		// 	throw new UnknownAccountException();
+		// }
+		// return new SimpleAuthenticationInfo(accounts, accounts.getPasswd(), this.getName());
+		return null;
 	}
 
 }

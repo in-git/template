@@ -1,4 +1,4 @@
-package com.company.config.web;
+package com.init.config.web;
 
 import java.io.IOException;
 

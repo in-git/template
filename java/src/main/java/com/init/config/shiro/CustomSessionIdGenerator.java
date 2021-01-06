@@ -1,13 +1,14 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 import java.io.Serializable;
 import java.util.UUID;
+
+import com.init.config.redis.Jedis;
 
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.company.config.redis.Jedis;
 
 /**
  *功能:	

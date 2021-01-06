@@ -1,4 +1,4 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 //  需要单独导入这个包，否则报错
 

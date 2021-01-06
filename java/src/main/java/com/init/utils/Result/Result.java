@@ -1,18 +1,17 @@
-package com.company.utils.Result;
-
+package com.init.utils.Result;
 
 public class Result<T> {
 	private String message;
 	private int retCode;
 	private T data;
 
-	private Result(T data) {
+	private Result(final T data) {
 		this.retCode = 0;
 		this.message = "成功";
 		this.data = data;
 	}
 
-	private Result(CodeMsg cm) {
+	private Result(final CodeMsg cm) {
 		if (cm == null) {
 			return;
 		}
@@ -25,7 +24,7 @@ public class Result<T> {
 	 * 
 	 * @return
 	 */
-	public static <T> Result<T> success(T data) {
+	public static <T> Result<T> success(final T data) {
 		return new Result<T>(data);
 	}
 
@@ -44,7 +43,7 @@ public class Result<T> {
 	 * 
 	 * @return
 	 */
-	public static <T> Result<T> error(CodeMsg code) {
+	public static <T> Result<T> error(final CodeMsg code) {
 		return new Result<T>(code);
 	}
 
@@ -55,7 +54,7 @@ public class Result<T> {
 	 * @param msg
 	 * @return
 	 */
-	public static <T> Result<T> error(CodeMsg cm, String msg) {
+	public static <T> Result<T> error(final CodeMsg cm, final String msg) {
 		cm.setMessage(cm.getMessage() + "--" + msg);
 		return new Result<T>(cm);
 	}

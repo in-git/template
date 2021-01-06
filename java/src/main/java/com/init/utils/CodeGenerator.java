@@ -1,5 +1,4 @@
-package com.company.utils;
-
+package com.init.utils;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;

@@ -1,9 +1,9 @@
-package com.company.config.error;
+package com.init.config.error;
+
+import com.init.utils.Result.CodeMsg;
+import com.init.utils.Result.Result;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import com.company.utils.Result.CodeMsg;
-import com.company.utils.Result.Result;
 
 /*
  * 功能:统一异常处理

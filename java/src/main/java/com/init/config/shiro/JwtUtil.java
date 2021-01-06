@@ -1,4 +1,4 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.company.config.web;
+package com.init.config.web;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

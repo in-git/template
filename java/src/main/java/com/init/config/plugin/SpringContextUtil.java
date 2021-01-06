@@ -1,5 +1,4 @@
-package com.company.config.plugin;
-
+package com.init.config.plugin;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class SpringContextUtil implements ApplicationContextAware {
     private static ApplicationContext applicationContext;
 
     @Autowired
-    public void setApplicationContext ( ApplicationContext applicationContext ) throws BeansException {
+    public void setApplicationContext ( final ApplicationContext applicationContext ) throws BeansException {
         SpringContextUtil.applicationContext = applicationContext;
     }
 
@@ -36,14 +35,14 @@ public class SpringContextUtil implements ApplicationContextAware {
     /**
      * 通过name获取 Bean.
      */
-    public static Object getBean ( String name ) {
+    public static Object getBean ( final String name ) {
         return getApplicationContext( ).getBean( name );
     }
 
     /**
      * 通过class获取Bean.
      */
-    public static < T > T getBean ( Class < T > clazz ) {
+    public static < T > T getBean ( final Class < T > clazz ) {
         return getApplicationContext( ).getBean( clazz );
     }
 
@@ -53,7 +52,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * name:Bean的名字
      * clazz:Bean的类
      */
-    public static < T > T getBean ( String name , Class < T > clazz ) {
+    public static < T > T getBean ( final String name , final Class < T > clazz ) {
         return getApplicationContext( ).getBean( name , clazz );
     }
 }

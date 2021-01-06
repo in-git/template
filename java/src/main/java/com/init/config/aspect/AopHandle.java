@@ -1,4 +1,4 @@
-package com.company.config.aspect;
+package com.init.config.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

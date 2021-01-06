@@ -1,4 +1,4 @@
-package com.company.config.web;
+package com.init.config.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

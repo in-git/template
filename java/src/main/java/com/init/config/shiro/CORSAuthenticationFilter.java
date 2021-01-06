@@ -1,4 +1,4 @@
-package com.company.config.shiro;
+package com.init.config.shiro;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
