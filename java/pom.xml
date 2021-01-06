@@ -7,9 +7,9 @@
         <version>2.3.3.RELEASE</version>
         <relativePath />
     </parent>
-    <groupId>com.company</groupId>
+    <groupId>com.spring.software</groupId>
     <artifactId>project</artifactId>
-    <version>beta</version>
+    <version>1.0.0</version>
     <name>Spring Program</name>
     <description>Spring 基础项目搭建</description>
 
