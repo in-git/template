@@ -1,80 +1,87 @@
-// æ˜¯å¦ä¸ºç”Ÿäº§ç¯å¢ƒ
+// ÊÇ·ñÎªÉú²ú»·¾³
 const isProduction = process.env.NODE_ENV !== "development";
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-// gzipå‹ç¼©
+// gzipÑ¹Ëõ
 // const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-// æœ¬åœ°ç¯å¢ƒæ˜¯å¦éœ€è¦ä½¿ç”¨cdn
+// ±¾µØ»·¾³ÊÇ·ñĞèÒªÊ¹ÓÃcdn
 const devNeedCdn = true;
 
-// cdné“¾æ¥
+// cdnÁ´½Ó
 const cdn = {
-  // cdnï¼šæ¨¡å—åç§°å’Œæ¨¡å—ä½œç”¨åŸŸå‘½åï¼ˆå¯¹åº”windowé‡Œé¢æŒ‚è½½çš„å˜é‡åç§°ï¼‰
+  // cdn£ºÄ£¿éÃû³ÆºÍÄ£¿é×÷ÓÃÓòÃüÃû£¨¶ÔÓ¦windowÀïÃæ¹ÒÔØµÄ±äÁ¿Ãû³Æ£©
   externals: {
     vue: "Vue",
     vuex: "Vuex",
     "vue-router": "VueRouter",
-    "ant-design-vue": "antd",
+    vuetify: "vuetify",
+    // "ant-design-vue": "antd",
     axios: "axios",
   },
-  // cdnçš„cssé“¾æ¥
+  // cdnµÄcssÁ´½Ó
   css: [
     "https://cdn.bootcdn.net/ajax/libs/antd/3.26.20/antd.css",
-    "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.css"
+    "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.css",
+    "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
   ],
-  // cdnçš„jsé“¾æ¥
+  // cdnµÄjsÁ´½Ó
   js: [
     "https://cdn.staticfile.org/vue/2.6.10/vue.min.js",
-    // "https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js",
     "https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js",
-    "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.js",
     "https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js",
+    "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",
+    /////////////////////////////////////////////////////////////////////////
+    // ==================   Vuex  && ant-vue CDN  ========================//
+    // "https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js",
+    // "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.js",
+    /////////////////////////////////////////////////////////////////////////
   ],
 };
 
 module.exports = {
+  transpileDependencies: ["vuetify"],
   productionSourceMap: false,
   chainWebpack: (config) => {
-    // // ============å‹ç¼©å›¾ç‰‡ start============
+    // // ============Ñ¹ËõÍ¼Æ¬ start============
     // config.module
     //     .rule('images')
     //     .use('image-webpack-loader')
     //     .loader('image-webpack-loader')
     //     .options({ bypassOnDebug: true })
     //     .end()
-    // ============å‹ç¼©å›¾ç‰‡ end============
+    // ============Ñ¹ËõÍ¼Æ¬ end============
 
-    // ============æ³¨å…¥cdn start============
+    // ============×¢Èëcdn start============
     config.plugin("html").tap((args) => {
-      // ç”Ÿäº§ç¯å¢ƒæˆ–æœ¬åœ°éœ€è¦cdnæ—¶ï¼Œæ‰æ³¨å…¥cdn
+      // Éú²ú»·¾³»ò±¾µØĞèÒªcdnÊ±£¬²Å×¢Èëcdn
       if (isProduction || devNeedCdn) args[0].cdn = cdn;
       return args;
     });
-    // ============æ³¨å…¥cdn start============
+    // ============×¢Èëcdn start============
   },
   configureWebpack: (config) => {
-    // ç”¨cdnæ–¹å¼å¼•å…¥ï¼Œåˆ™æ„å»ºæ—¶è¦å¿½ç•¥ç›¸å…³èµ„æº
+    // ÓÃcdn·½Ê½ÒıÈë£¬Ôò¹¹½¨Ê±ÒªºöÂÔÏà¹Ø×ÊÔ´
     if (isProduction || devNeedCdn) config.externals = cdn.externals;
 
-    // ç”Ÿäº§ç¯å¢ƒç›¸å…³é…ç½®
+    // Éú²ú»·¾³Ïà¹ØÅäÖÃ
     // if (isProduction) {
-    //   // ä»£ç å‹ç¼©
+    //   // ´úÂëÑ¹Ëõ
     //   // ..................
-    //   // gzipå‹ç¼©
+    //   // gzipÑ¹Ëõ
     //   const productionGzipExtensions = ["html", "js", "css"];
     //   config.plugins.push(
     //     new CompressionWebpackPlugin({
     //       filename: "[path].gz[query]",
     //       algorithm: "gzip",
     //       test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
-    //       threshold: 10240, // åªæœ‰å¤§å°å¤§äºè¯¥å€¼çš„èµ„æºä¼šè¢«å¤„ç† 10240
-    //       minRatio: 0.8, // åªæœ‰å‹ç¼©ç‡å°äºè¿™ä¸ªå€¼çš„èµ„æºæ‰ä¼šè¢«å¤„ç†
-    //       deleteOriginalAssets: false, // åˆ é™¤åŸæ–‡ä»¶
+    //       threshold: 10240, // Ö»ÓĞ´óĞ¡´óÓÚ¸ÃÖµµÄ×ÊÔ´»á±»´¦Àí 10240
+    //       minRatio: 0.8, // Ö»ÓĞÑ¹ËõÂÊĞ¡ÓÚÕâ¸öÖµµÄ×ÊÔ´²Å»á±»´¦Àí
+    //       deleteOriginalAssets: false, // É¾³ıÔ­ÎÄ¼ş
     //     })
     //   );
     // }
 
-    // å…¬å…±ä»£ç æŠ½ç¦»
+    // ¹«¹²´úÂë³éÀë
     // config.optimization = {
     //   splitChunks: {
     //     cacheGroups: {

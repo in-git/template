@@ -3,11 +3,11 @@ import App from './App.vue'
 import router from './plugins/router'
 
 /* ------ ············ ------ */
-/* ------- ant ui
+/* -------- Vuetify ---------*/
+import vuetify from '@/plugins/vuetify.js'
+Vue.use(vuetify)
 /* ------ ············ ------ */
-import Antd from 'ant-design-vue';
-Vue.use(Antd);
-import 'ant-design-vue/dist/antd.css';
+/* ------ ············ ------ */
 
 /* ------ ············ ------ */
 /* ------- Axios依赖
