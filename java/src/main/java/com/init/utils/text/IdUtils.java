@@ -1,4 +1,4 @@
-package com.init.utils;
+package com.zzsoft.utils.text;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
@@ -60,7 +60,7 @@ public class IdUtils {
 	}
 
 	/**
-	 * # ------------------------------------------- # 
+	 * --------------------------------------------# 
 	 * 基于UUID+MD5产生唯一无序ID #
 	 * ------------------------------------------- #
 	 */

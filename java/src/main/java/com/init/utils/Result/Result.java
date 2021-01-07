@@ -1,17 +1,18 @@
-package com.init.utils.Result;
+package com.zzsoft.utils.Result;
+
 
 public class Result<T> {
 	private String message;
 	private int retCode;
 	private T data;
 
-	private Result(final T data) {
-		this.retCode = 0;
+	private Result(T data) {
+		this.retCode = 10000;
 		this.message = "成功";
 		this.data = data;
 	}
 
-	private Result(final CodeMsg cm) {
+	private Result(CodeMsg cm) {
 		if (cm == null) {
 			return;
 		}
@@ -24,7 +25,7 @@ public class Result<T> {
 	 * 
 	 * @return
 	 */
-	public static <T> Result<T> success(final T data) {
+	public static <T> Result<T> success(T data) {
 		return new Result<T>(data);
 	}
 
@@ -43,7 +44,7 @@ public class Result<T> {
 	 * 
 	 * @return
 	 */
-	public static <T> Result<T> error(final CodeMsg code) {
+	public static <T> Result<T> error(CodeMsg code) {
 		return new Result<T>(code);
 	}
 
@@ -54,7 +55,7 @@ public class Result<T> {
 	 * @param msg
 	 * @return
 	 */
-	public static <T> Result<T> error(final CodeMsg cm, final String msg) {
+	public static <T> Result<T> error(CodeMsg cm, String msg) {
 		cm.setMessage(cm.getMessage() + "--" + msg);
 		return new Result<T>(cm);
 	}

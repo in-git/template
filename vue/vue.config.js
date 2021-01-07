@@ -10,23 +10,24 @@ const devNeedCdn = true;
 // cdn链接
 const cdn = {
   // cdn：模块名称和模块作用域命名（对应window里面挂载的变量名称）
+  //"模块文件名":"引入变量名"
   externals: {
     vue: "Vue",
     vuex: "Vuex",
     "vue-router": "VueRouter",
     vuetify: "vuetify",
-    // "ant-design-vue": "antd",
     axios: "axios",
+    // "ant-design-vue": "antd",
   },
   // cdn的css链接
   css: [
-    "https://cdn.bootcdn.net/ajax/libs/antd/3.26.20/antd.css",
-    "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.css",
+    // "https://cdn.bootcdn.net/ajax/libs/antd/3.26.20/antd.css",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
+    // "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.css",
   ],
   // cdn的js链接
   js: [
-    "https://cdn.staticfile.org/vue/2.6.10/vue.min.js",
+    "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js",
     "https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js",
     "https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",

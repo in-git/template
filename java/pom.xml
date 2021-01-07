@@ -1,243 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
-        <relativePath />
-    </parent>
-    <groupId>com.spring.software</groupId>
-    <artifactId>project</artifactId>
-    <version>1.0.0</version>
-    <name>Spring Program</name>
-    <description>Spring 基础项目搭建</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath />
+	</parent>
+	<groupId>com.company</groupId>
+	<artifactId>zzsoft</artifactId>
+	<version>alpha</version>
+	<name>ymmall</name>
+	<description>基于ERP系统的商城</description>
 
-    <properties>
-        <java.version>1.8</java.version>
+	<properties>
+		<java.version>1.8</java.version>
+		<!-- 为解决Eclipse Unknown Error 而降低版本号 -->
+		<!-- <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version> -->
+		<shiro-version>1.3.2</shiro-version>
+	</properties>
 
-        <!-- 为解决Eclipse Unknown Error 而降低版本号-->
-        <!-- <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version> -->
-        <shiro-version>1.3.2</shiro-version>
-    </properties>
+	<!--!!! 打包成war包需要开启，和下面需要配套使用 !!! -->
+	<packaging>war</packaging>
 
-    <dependencies>
-
-        <!-- Apache工具包 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+	<dependencies>
+		<!--  快递100的依赖  -->
+		<dependency>
+            <groupId>com.github.kuaidi100-api</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0.1</version>
         </dependency>
+		<!--!!! 打包成war包需要引入的依赖 !!! -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-        <!-- Springboot核心依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <!-- Apache工具类 -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
-        </dependency>
+		<!-- Apache工具包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 
-        <!-- Shiro 核心依赖 ->Begin -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-ehcache</artifactId>
-            <version>${shiro-version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-             <version>${shiro-version}</version>
-        </dependency>
+		<!-- Springboot核心依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Apache工具类 -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- Shiro 核心依赖 ->Begin -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
 
 		<dependency>
-		    <groupId>org.crazycake</groupId>
-		    <artifactId>shiro-redis</artifactId>
-		     <version>3.0.0</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro-version}</version>
 		</dependency>
-        <!--   
-            ->End 
-        -->
 
-        <!-- spring-aop -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            </dependency>
+		<dependency>
+			<groupId>org.crazycake</groupId>
+			<artifactId>shiro-redis</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- ->End -->
 
-        <!-- spring-boot-starter-aop -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
+		<!-- spring-aop -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
 
-        <!--    Redis配置   -->
-	     <dependency>
-		    <groupId>redis.clients</groupId>
+		<!-- spring-boot-starter-aop -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<!-- Redis配置 -->
+		<dependency>
+			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
-        
-        <!--   Mysql,MybatisPlus,Mybatis   -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.2</version>
-        </dependency>
 
-        <dependency> 
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.1.tmp</version>
-        </dependency>
-
-        <!-- mybatis-plus-generator：Mybatis代码生成器 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.1.tmp</version>
-        </dependency>
-
-        <!-- SqlServer连接 -->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.3</version>
-        </dependency>
-
-        <!-- @MapperScan才能正常使用 -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>2.0.2</version>
-        </dependency>
-
-        <!-- Lombok -->
+		<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+			</dependency> -->
+		<!-- Mysql,MybatisPlus,Mybatis -->
 		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<!-- mybatis-plus-generator：Mybatis代码生成器 -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<!-- SqlServer连接 -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.3</version>
+		</dependency>
+
+		<!-- @MapperScan才能正常使用 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 
 
-        <!--  参数验证 
-            ->Begin 
-        -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.0.7.Final</version>
-        </dependency>
-        <!--   
-            ->End 
-        -->
-
-        <!-- fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.58</version>
-        </dependency>
-
-        <!-- JWT验证 -->
-		 <dependency>
-	        <groupId>io.jsonwebtoken</groupId>
-	        <artifactId>jjwt</artifactId>
-	        <version>0.6.0</version>
-	    </dependency>
-	    <!--jwt-->
+		<!-- 参数验证 ->Begin -->
 		<dependency>
-		    <groupId>com.auth0</groupId>
-		    <artifactId>java-jwt</artifactId>
-		    <version>3.3.0</version>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
 		</dependency>
-		
-		
-        <!-- 
-                不常用依赖 -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<!-- ->End -->
 
-        <!-- MySql 驱动连接 -->
-        <!-- 
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <scope>runtime</scope>
-            </dependency> 
-        -->
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
 
-        <!--  
-            打包成war包需要引入的依赖-->
-        <!-- 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-tomcat</artifactId>
-                <scope>provided</scope>
-            </dependency> 
-        -->
+		<!-- JWT验证 -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.6.0</version>
+		</dependency>
+		<!--jwt -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- 不常用依赖 -->
+
+		<!-- MySql 驱动连接 -->
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<scope>runtime</scope> </dependency> -->
 
 
-        <!-- 
-            德鲁伊-->
-        <!-- 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>1.1.8</version>
-            </dependency>
-         -->
 
-        <!--
-            Mybatis自带分页插件-->
-        <!-- 
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>1.2.10</version>
-            </dependency> 
-        -->
+		<!-- 德鲁伊 -->
+		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>druid</artifactId> 
+			<version>1.1.8</version> </dependency> -->
 
-        <!-- 
-            Aspectj -->
-        <!-- 
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjrt</artifactId>
-                <version>1.9.4</version>
-            </dependency> 
-        -->
+		<!-- Mybatis自带分页插件 -->
+		<!-- <dependency> <groupId>com.github.pagehelper</groupId> <artifactId>pagehelper-spring-boot-starter</artifactId> 
+			<version>1.2.10</version> </dependency> -->
 
-        <!-- 
-            Aspectj Weaver -->
-        <!-- 
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>1.8.7</version>
-            </dependency> 
-        -->
-    </dependencies>
+		<!-- Aspectj -->
+		<!-- <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjrt</artifactId> 
+			<version>1.9.4</version> </dependency> -->
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+		<!-- Aspectj Weaver -->
+		<!-- <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjweaver</artifactId> 
+			<version>1.8.7</version> </dependency> -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
