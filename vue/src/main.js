@@ -1,24 +1,14 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./plugins/router";
-
-/* -------- Vuetify ---------*/
-import vuetify from "@/plugins/vuetify.js";
-/* ------ ············ ------ */
-
-/* ------ ············ ------ */
-/* ------- Axios依赖
-/* ------ ············ ------ */
-import { post, get, patch, put } from "@/plugins/axios.js";
-Vue.prototype.$post = post;
-Vue.prototype.$get = get;
-Vue.prototype.$patch = patch;
-Vue.prototype.$put = put;
-
-Vue.config.productionTip = false;
+import Vue from 'vue'
+import App from './App.vue'
+import router from './global/router'
+import vuetify from './global/plugins/vuetify';
+import api from './global/request/api'
+import 'vuetify/dist/vuetify.min.css'
+Vue.prototype.$api = api
+Vue.config.productionTip = false
 
 new Vue({
-  vuetify,
   router,
-  render: (h) => h(App),
-}).$mount("#app");
+  vuetify,
+  render: h => h(App)
+}).$mount('#app')

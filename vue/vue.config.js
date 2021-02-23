@@ -21,9 +21,9 @@ const cdn = {
   },
   // cdn的css链接
   css: [
-    // "https://cdn.bootcdn.net/ajax/libs/antd/3.26.20/antd.css",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
-    // "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.css",
+    "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
+    "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
   ],
   // cdn的js链接
   js: [
