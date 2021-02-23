@@ -12,8 +12,8 @@
 	<groupId>com.company</groupId>
 	<artifactId>zzsoft</artifactId>
 	<version>alpha</version>
-	<name>ymmall</name>
-	<description>基于ERP系统的商城</description>
+	<name>zzsoftware</name>
+	<description>中正软件通用pom</description>
 
 	<properties>
 		<java.version>1.8</java.version>
