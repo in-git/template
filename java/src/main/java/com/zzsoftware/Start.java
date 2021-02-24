@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
-@SpringBootApplication(scanBasePackages = "com.init")
-@MapperScan("com.init")
-public class Application {
+@SpringBootApplication(scanBasePackages = "com.zzsoftware")
+@MapperScan("com.zzsoftware")
+public class Start {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class , args);
+        SpringApplication.run(Start.class , args);
     }
 }

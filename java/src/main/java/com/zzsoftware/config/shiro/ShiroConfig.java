@@ -4,7 +4,6 @@ package com.zzsoftware.config.shiro;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -18,10 +17,9 @@ import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 //  必须配置该注解,默认关闭
-@Component
+//@Component
 public class ShiroConfig {
 	
 
