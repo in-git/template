@@ -18,8 +18,8 @@ public class CorsConfig {
         // 允许任何域名使用
         corsConfiguration.addAllowedOrigin("*");
         // 允许任何头
-        corsConfiguration.addAllowedHeader("*");
-        // 允许任何方法（post、get等）
+		corsConfiguration.addAllowedHeader("*");
+		// 允许任何方法（post、get等）
         corsConfiguration.addAllowedMethod("*");
         return corsConfiguration;
     }

@@ -39,9 +39,9 @@ public class Generator {
 		pc.setParent("com.zzsoftware.module");
 		/**
 		 * ->模块名
-		 * 此处需要修改
+		 * 		此处需要修改
 		 */
-		pc.setModuleName("module name");
+		pc.setModuleName("test");
 		pc.setEntity("entity");
 		pc.setMapper("mapper");
 		pc.setService("service");
@@ -51,7 +51,7 @@ public class Generator {
 		StrategyConfig strategy = new StrategyConfig();
 		/**
 		 * ->表名
-		 * 此处需要修改
+		 * 		此处需要修改
 		 */
 		strategy.setInclude("accApportion");
 		strategy.setNaming(NamingStrategy.underline_to_camel);

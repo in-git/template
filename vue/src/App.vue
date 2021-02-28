@@ -79,3 +79,8 @@ export default {
   },
 };
 </script>
+
+<style>
+@import url("./global/css/style.css");
+@import url("./global/css/reset.css");
+</style>

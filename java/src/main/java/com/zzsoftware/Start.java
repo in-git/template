@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication(scanBasePackages = "com.zzsoftware")
-@MapperScan("com.zzsoftware")
+@MapperScan(basePackages = {"com.zzsoftware.module"})
 public class Start {
     public static void main(String[] args) {
         SpringApplication.run(Start.class , args);

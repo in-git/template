@@ -7,11 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Component
+//@Component
 public class WebFilter implements javax.servlet.Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -36,7 +35,6 @@ public class WebFilter implements javax.servlet.Filter {
             chain.doFilter(req , res);
         }
         catch (Exception ex){
-        	System.out.println(ex.toString());
             log.warn("用户权限校验失败");
         }
     }

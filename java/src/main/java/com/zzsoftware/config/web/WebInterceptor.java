@@ -17,7 +17,6 @@ public class WebInterceptor implements HandlerInterceptor {
 //		校验Token,为空或校验成功则放行
 //		boolean isLogin = JwtUtil.verify(token);
 //		return isLogin || StringUtils.isEmpty(token) ? true : false;
-		System.out.println( "==" );
 		return true;
 	}
 }
