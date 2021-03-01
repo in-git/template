@@ -4,10 +4,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
 // @Component
-@Aspect
+//@Aspect
 public class AopHandle {
-	@Before("execution(* com.init.index.module..*(..))")
-	public void before() throws Throwable {
-		System.out.println("执行");
-	}
+    @Before("execution(* com.zzsoftware.module..*(..))")
+    public void before() throws Throwable {
+        System.out.println("执行");
+    }
 }

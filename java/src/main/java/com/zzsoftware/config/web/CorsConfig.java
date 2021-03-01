@@ -9,7 +9,7 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * 配置后:不用再使用@CrossOrigin
  */
-@Configuration
+//@Configuration
 
 public class CorsConfig {
 

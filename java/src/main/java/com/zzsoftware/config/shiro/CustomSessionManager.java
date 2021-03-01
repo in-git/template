@@ -11,7 +11,7 @@ import org.apache.shiro.web.util.WebUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-@Component
+//@Component
 public class CustomSessionManager extends DefaultWebSessionManager {
 	final private static String AUTHORIZATION = "authToken";
 //	final private static String AUTHORIZATION = "id";
