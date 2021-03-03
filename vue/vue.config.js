@@ -1,121 +1,51 @@
-// ÊÇ·ñÎªÉú²ú»·¾³
+const config = require("./src/global/config/webConfig");
+// æ˜¯å¦ä¸ºç”Ÿäº§ç¯å¢ƒ
 const isProduction = process.env.NODE_ENV !== "development";
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-// gzipÑ¹Ëõ
-// const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-// ±¾µØ»·¾³ÊÇ·ñĞèÒªÊ¹ÓÃcdn
+// æœ¬åœ°ç¯å¢ƒæ˜¯å¦éœ€è¦ä½¿ç”¨cdn
 const devNeedCdn = true;
 
-// cdnÁ´½Ó
+// cdné“¾æ¥
 const cdn = {
-  // cdn£ºÄ£¿éÃû³ÆºÍÄ£¿é×÷ÓÃÓòÃüÃû£¨¶ÔÓ¦windowÀïÃæ¹ÒÔØµÄ±äÁ¿Ãû³Æ£©
-  //"Ä£¿éÎÄ¼şÃû":"ÒıÈë±äÁ¿Ãû"
+  // cdnï¼šæ¨¡å—åç§°å’Œæ¨¡å—ä½œç”¨åŸŸå‘½åï¼ˆå¯¹åº”windowé‡Œé¢æŒ‚è½½çš„å˜é‡åç§°ï¼‰
+  //"æ¨¡å—æ–‡ä»¶å":"å¼•å…¥å˜é‡å"
   externals: {
     vue: "Vue",
     vuex: "Vuex",
     "vue-router": "VueRouter",
     vuetify: "vuetify",
     axios: "axios",
-    // "ant-design-vue": "antd",
   },
-  // cdnµÄcssÁ´½Ó
+  // cdnçš„cssé“¾æ¥
   css: [
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
     "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
-    "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+    "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
+    "https://cdn.bootcdn.net/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css"
   ],
-  // cdnµÄjsÁ´½Ó
+  // cdnçš„jsé“¾æ¥
   js: [
     "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js",
     "https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js",
     "https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",
-    /////////////////////////////////////////////////////////////////////////
-    // ==================   Vuex  && ant-vue CDN  ========================//
-    // "https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js",
-    // "https://cdn.bootcdn.net/ajax/libs/ant-design-vue/1.7.1/antd.min.js",
-    /////////////////////////////////////////////////////////////////////////
   ],
 };
 
 module.exports = {
+  devServer: {
+    port: config.devServe.port === null ? 8080 : config.devServe.port, // å¯åŠ¨ç«¯å£
+    open: config.devServe.open, // å¯åŠ¨åæ˜¯å¦è‡ªåŠ¨æ‰“å¼€ç½‘é¡µ
+  },
   transpileDependencies: ["vuetify"],
   productionSourceMap: false,
   chainWebpack: (config) => {
-    // // ============Ñ¹ËõÍ¼Æ¬ start============
-    // config.module
-    //     .rule('images')
-    //     .use('image-webpack-loader')
-    //     .loader('image-webpack-loader')
-    //     .options({ bypassOnDebug: true })
-    //     .end()
-    // ============Ñ¹ËõÍ¼Æ¬ end============
-
-    // ============×¢Èëcdn start============
     config.plugin("html").tap((args) => {
-      // Éú²ú»·¾³»ò±¾µØĞèÒªcdnÊ±£¬²Å×¢Èëcdn
       if (isProduction || devNeedCdn) args[0].cdn = cdn;
       return args;
     });
-    // ============×¢Èëcdn start============
   },
   configureWebpack: (config) => {
-    // ÓÃcdn·½Ê½ÒıÈë£¬Ôò¹¹½¨Ê±ÒªºöÂÔÏà¹Ø×ÊÔ´
     if (isProduction || devNeedCdn) config.externals = cdn.externals;
-
-    // Éú²ú»·¾³Ïà¹ØÅäÖÃ
-    // if (isProduction) {
-    //   // ´úÂëÑ¹Ëõ
-    //   // ..................
-    //   // gzipÑ¹Ëõ
-    //   const productionGzipExtensions = ["html", "js", "css"];
-    //   config.plugins.push(
-    //     new CompressionWebpackPlugin({
-    //       filename: "[path].gz[query]",
-    //       algorithm: "gzip",
-    //       test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
-    //       threshold: 10240, // Ö»ÓĞ´óĞ¡´óÓÚ¸ÃÖµµÄ×ÊÔ´»á±»´¦Àí 10240
-    //       minRatio: 0.8, // Ö»ÓĞÑ¹ËõÂÊĞ¡ÓÚÕâ¸öÖµµÄ×ÊÔ´²Å»á±»´¦Àí
-    //       deleteOriginalAssets: false, // É¾³ıÔ­ÎÄ¼ş
-    //     })
-    //   );
-    // }
-
-    // ¹«¹²´úÂë³éÀë
-    // config.optimization = {
-    //   splitChunks: {
-    //     cacheGroups: {
-    //       vendor: {
-    //         chunks: "all",
-    //         test: /node_modules/,
-    //         name: "vendor",
-    //         minChunks: 1,
-    //         maxInitialRequests: 5,
-    //         minSize: 0,
-    //         priority: 100,
-    //       },
-    //       common: {
-    //         chunks: "all",
-    //         test: /[\\/]src[\\/]js[\\/]/,
-    //         name: "common",
-    //         minChunks: 2,
-    //         maxInitialRequests: 5,
-    //         minSize: 0,
-    //         priority: 60,
-    //       },
-    //       styles: {
-    //         name: "styles",
-    //         test: /\.(sa|sc|c)ss$/,
-    //         chunks: "all",
-    //         enforce: true,
-    //       },
-    //       runtimeChunk: {
-    //         name: "manifest",
-    //       },
-    //     },
-    //   },
-
-    // };
   },
 };

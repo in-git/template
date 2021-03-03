@@ -8,7 +8,7 @@ const vuetifyOpts = {
   theme: {
     ///////////// 主题选择 /////////////
     
-    // dark: false,
+    dark: false,
     // themes: {
     //   dark: {
     //     primary: '#B73BDC',

@@ -1,18 +1,22 @@
 /* ------ ············ ------ */
 /* ------- Axios依赖
 /* ------ ············ ------ */
-
+import config from "@/global/config/webConfig";
 import axios from "axios";
 
 axios.defaults.timeout = 5000;
-// axios.defaults.baseURL = 'http://127.0.0.1:8090';
+if (config.host.length === 0 || config.port.length === 0) {
+  config.host = "http://localhost";
+  config.port = 8080;
+}
+axios.defaults.baseURL = config.host;
 //开发模式服务器地址
 if (process.env.NODE_ENV == "development") {
-  axios.defaults.baseURL = "http://127.0.0.1:4000";
+  axios.defaults.baseURL = config.host;
 }
 //局域网服务器地址
 else if (process.env.NODE_ENV == "debug") {
-  axios.defaults.baseURL = "http://192.168.0.54:4000";
+  axios.defaults.baseURL = config.host;
 }
 // 外网服务器地址
 else if (process.env.NODE_ENV == "production") {

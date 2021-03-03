@@ -1,31 +1,15 @@
-import Vue from 'vue'
-import Message from './message/message.vue'
+import component from "./component/component.vue";
+const components = [component];
 
-const messageBox = Vue.extend(Message)
+const install = function(Vue) {
+  // 判断是否安装
+  if (install.installed) return;
+  // 遍历注册全局组件
+  components.map((component) => Vue.component(component.name, component));
+};
 
-Message.install = function (options, type) {
-  if (options === undefined || options === null) {
-    options = {
-      content: ''
-    }
-  } else if (typeof options === 'string' || typeof options === 'number') {
-    options = {
-      content: options
-    }
-    if (type != undefined && options != null) {
-      options.type = type;
-    }
-  }
-
-  let instance = new messageBox({
-    data: options
-  }).$mount()
-
-  document.body.appendChild(instance.$el)
-
-  Vue.nextTick(() => {
-    instance.visible = true
-  })
+if (typeof window !== "undefined" && window.Vue) {
+  install(window.Vue);
 }
-
-export default Message
+//第一个参数是用于安装所有组件，第二个参数是用于单个组件引入
+export default {install,component};
