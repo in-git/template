@@ -39,6 +39,12 @@
             <!--            <scope>provided</scope>-->
         </dependency>
 
+        <!--        状态码的获取      -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.13</version>
+        </dependency>
 
         <!-- Apache工具包 -->
         <dependency>
