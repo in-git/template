@@ -5,6 +5,13 @@
 ================== */
 
 /* ==================
+|	      备案样式    	|
+================== */
+.records {
+  text-decoration: none !important;
+  font-size: 12px;
+}
+/* ==================
 |	      页面位置    	|
 ================== */
 .l-0 {
@@ -20,7 +27,7 @@
 }
 
 .b-0 {
-  top: 0 !important;
+  bottom: 0 !important;
 }
 
 /* 通用背景颜色 */
@@ -213,7 +220,6 @@
 .letter-spacing-v5 {
   letter-spacing: 0.8rem;
 }
-
 
 /* ==================
   |	      padding     |
@@ -1630,4 +1636,3 @@ t .bg-dark {
 .text-reset {
   color: inherit !important;
 }
-

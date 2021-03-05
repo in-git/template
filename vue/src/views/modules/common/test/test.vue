@@ -1,16 +1,6 @@
 <template>
-  <div>
-    <v-container>
-      <v-row>
-        <v-col cols="4">
-          左侧饼状图
-        </v-col>
-        <v-col cols="8">
-          <div id="main" style="width: 100%;minHeight:400px;"></div>
-        </v-col>
-      </v-row>
-    </v-container>
-
+  <div id="app">
+    <div id="main" style="width: 600px;height:400px;"></div>
   </div>
 </template>
 <script>
@@ -18,39 +8,56 @@ export default {
   name: "app",
   methods: {
     drawChart() {
+      // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("main"));
       // 指定图表的配置项和数据
       let option = {
         title: {
           text: "ECharts 入门示例",
+          textStyle: {
+            color: "purple",
+          },
+          borderWidth: 0.5,
+          borderColor: "rbga(0,0,0,0.2 )",
+          left: 15,
+          top: 18,
         },
-        showBackground:true,
-        tooltip: {},
+        tooltip: {
+          trigger: "axis",
+          triggerOn: "click",
+          formatter: "hah",
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {},
+            dataView: {},
+            restore: {},
+            dataZoom: {},
+            magicType: {
+              type: ["bar", "line", "pie"],
+            },
+          },
+        },
         legend: {
-          data: ["2019销量", "2020销量", "2021销量"],
+          data: ["销量"],
         },
         xAxis: {
           data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
         },
-        yAxis: {
-          position: "left",
-        },
+        yAxis: {},
         series: [
           {
-            name: "2019销量",
+            name: "销量",
             type: "bar",
-            data: [125, 202, 336, 102, 102, 22.01],
-            showBackground: true
+            data: [5, 20, 36, 10, 10, 20],
           },
+        ],
+        dataZoom: [
           {
-            name: "2020销量",
-            type: "bar",
-            data: [100, 175, 156, 180, 10, 224],
-          },
-          {
-            name: "2021销量",
-            type: "bar",
-            data: [155, 210, 316, 110, 110, 20],
+            // 这个dataZoom组件，默认控制x轴。
+            type: "slider", // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            start: 0, // 左边在 10% 的位置。
+            end: 100, // 右边在 60% 的位置。
           },
         ],
       };

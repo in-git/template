@@ -1,6 +1,6 @@
-import Vue from '@/global/config/use.js'
+import Vue from '@/global/config/import.js'
 import App from './App.vue'
-import router from './global/router'
+import router from './global/router/router'
 import vuetify from './global/config/vuetify';
 import api from './global/request/api'
 import 'vuetify/dist/vuetify.min.css'

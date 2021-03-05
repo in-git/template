@@ -3,7 +3,7 @@ import toastComponent from './toast/toast.vue'
 // 组件构造器，构造出一个 vue组件实例
 const ToastConstructor = vue.extend(toastComponent)
 
-function message ( text, type, duration = 5000 ) {
+function message ( text, type, duration = 15000 ) {
   const toastDom = new ToastConstructor({
     el: document.createElement('div'),
     data () {

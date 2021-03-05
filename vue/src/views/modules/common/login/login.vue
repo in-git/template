@@ -1,34 +1,27 @@
 <template>
   <div class="white--text h-100 bgimg" :style="{backgroundImage:`url(${bgimg})`}">
-    <v-container fill-height class=" pa-0" fluid>
-      <v-row justify="center" align="center">
-        <v-col xl="3" lg="4" md="6" cols="11">
-          <v-card elevation="0" width="100%">
-            <v-card-text class="text-center display-1 grey white--text">
+    <v-container fill-height class="" fluid c>
+      <v-row justify="center" align="center" >
+        <v-col xl="3" lg="4" md="5" cols="11">
+          <v-card elevation="0" width="100%"  >
+            <v-card-text class="text-center display-1 ">
               管理员登陆界面
             </v-card-text>
             <v-card-text class="pb-0">
               <v-row>
                 <v-col class="pb-0">
-                  <v-text-field dense label="请输入账号" outlined color></v-text-field>
-                  <v-text-field dense label="请输入密码" outlined color></v-text-field>
+                  <v-text-field prepend-inner-icon="mdi-account" dense label="请输入账号" outlined color></v-text-field>
+                  <v-text-field prepend-inner-icon="mdi-lock" dense label="请输入密码" outlined color></v-text-field>
                 </v-col>
               </v-row>
             </v-card-text>
-            <v-card-text class="d-flex justify-space-around">
+            <v-card-text>
               <v-row>
-                <v-col>
-                  <v-btn outlined color="pink" block>注册</v-btn>
+                <v-col class="py-0 ma-0 justify-end d-flex" dense>
+                  <v-checkbox class="py-0 ma-0" hide-details dense v-model="rememberMe" label="记住密码"></v-checkbox>
                 </v-col>
-                <v-col>
-                  <v-btn outlined color="green" block to="/home">登陆</v-btn>
-                </v-col>
-              </v-row>
-            </v-card-text>
-            <v-card-text class="py-0">
-              <v-row no-gutters>
-                <v-col>
-                  <v-switch class="mt-0" label="其他操作"></v-switch>
+                <v-col cols="12">
+                  <v-btn outlined color="blue lighten-1" block to="/home">登陆</v-btn>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -45,6 +38,7 @@ export default {
   data() {
     return {
       bgimg: "assets/background/" + config.bgimg,
+      rememberMe: false,
     };
   },
   mounted() {},

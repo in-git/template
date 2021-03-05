@@ -15,13 +15,14 @@ const cdn = {
     "vue-router": "VueRouter",
     vuetify: "vuetify",
     axios: "axios",
+    wangeditor:'wangeditor'
   },
   // cdn的css链接
   css: [
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css",
     "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
     "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
-    "https://cdn.bootcdn.net/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css"
+    "https://cdn.bootcdn.net/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css",
   ],
   // cdn的js链接
   js: [
@@ -29,6 +30,7 @@ const cdn = {
     "https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js",
     "https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",
+    "https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"
   ],
 };
 

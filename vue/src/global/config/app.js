@@ -6,12 +6,41 @@ let _data = {
   },
   data() {
     return {
-      drawer: false,
-      bannerTitle: config.bannerTitle,
+      drawer: false, //是否打开侧边导航栏
+      bannerTitle: config.bannerTitle, //配置导航栏标题
       theme: {
-        dark: config.theme.dark,
+        dark: config.theme.dark, //配置是否为黑暗主题
       },
+      isLoginIn: false, //是否已经登陆,
+      record:{
+        copyright:config.record.copyright,
+        info:config.record.info
+      },
+
+      // 
+      items: [
+        {
+          icon: 'mdi-inbox',
+          text: 'Inbox',
+        },
+        {
+          icon: 'mdi-star',
+          text: 'Star',
+        },
+        {
+          icon: 'mdi-send',
+          text: 'Send',
+        },
+        {
+          icon: 'mdi-email-open',
+          text: 'Drafts',
+        },
+      ],
+      model: 1,
     };
+
+    // 
+    
   },
   methods: {
     // 打印配置

@@ -2,6 +2,7 @@
   <div>
     <div class="app-toast black--text" v-if="isShow" :class="{'info': type=== 'info','success': type=== 'success','wraning': type=== 'wraning','danger': type=== 'danger'}">{{text}}</div>
   </div>
+
 </template>
 
 <style scoped>
