@@ -1,0 +1,54 @@
+# 日志配置
+logging:
+  file:
+    path: log
+  level:
+    com:
+      baomidou:
+        mybatisplus:
+          core:
+            metadata:
+              TableInfoHelper: error
+      zzsoftware:
+        module: debug
+    root: error
+#    mybatis配置
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:com/zzsoftware/module/**.xml
+  type-aliases-package: com.zzsoftware.module
+#  mybatis plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      logic-delete-value: y
+      logic-not-delete-value: n
+      table-underline: false
+      logic-delete-field: isDelete
+#      服务器配置
+server:
+  port: 4000
+  servlet:
+    context-path: '/project '
+# mysql 配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 00000000
+    url: jdbc:mysql://localhost:3306/ven?characterEncoding=utf8&serverTimezone=UTC
+    username: root
+  #    热部署
+  devtools:
+    restart:
+      enabled: true
+  main:
+    banner-mode: 'off'
+  #    redis配置
+  #
+  redis:
+    host: localhost
+    password: ''
+    port: 6379

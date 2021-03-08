@@ -47,6 +47,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(GlobalException.class)
     public Result handlerGlobalException(GlobalException e) {
         logger.error(e.getMessage(), e);
-        return Result.error().message(e.getMessage()).code(e.getCode());
+        return Result.error().message(e.getMessage()).code(e.hashCode());
     }
 }

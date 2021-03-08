@@ -125,11 +125,11 @@
         </dependency>
 
         <!-- SqlServer连接 -->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.microsoft.sqlserver</groupId>-->
+        <!--            <artifactId>sqljdbc4</artifactId>-->
+        <!--            <version>4.0</version>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -196,12 +196,17 @@
         <!-- 不常用依赖 -->
 
         <!-- MySql 驱动连接 -->
-        <!--        <dependency>-->
-        <!--            <groupId>mysql</groupId>-->
-        <!--            <artifactId>mysql-connector-java</artifactId>-->
-        <!--            <scope>runtime</scope>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>springloaded</artifactId>
+            <version>1.2.6.RELEASE</version>
+        </dependency>
 
         <!-- 德鲁伊 -->
         <!--        <dependency>-->
