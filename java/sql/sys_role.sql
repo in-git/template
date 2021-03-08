@@ -1,0 +1,3 @@
+INSERT INTO `sys_role`(`id`, `role_name`, `role_code`, `remark`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755451245, 'superAdmin', '1001', '超级管理员', '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);
+INSERT INTO `sys_role`(`id`, `role_name`, `role_code`, `remark`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755452551, 'admin', '2001', '普通管理员', '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);
+INSERT INTO `sys_role`(`id`, `role_name`, `role_code`, `remark`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755458779, 'user', '3001', '普通用户', '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);

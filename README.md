@@ -1,2 +1,7 @@
 ### 项目模板
-包含:UniApp,SpringBoot,Vue,等
+
+
+```
+包含项目:java ,uniapp,vue ,vuepress
+```
+
