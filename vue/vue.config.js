@@ -15,7 +15,8 @@ const cdn = {
     "vue-router": "VueRouter",
     vuetify: "vuetify",
     axios: "axios",
-    wangeditor:'wangeditor'
+    wangeditor: "wangeditor",
+    vuex: "vuex",
   },
   // cdn的css链接
   css: [
@@ -30,7 +31,8 @@ const cdn = {
     "https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js",
     "https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js",
     "https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js",
-    "https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"
+    "https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js",
+    "https://cdn.bootcss.com/vuex/3.6.2/vuex.min.js",
   ],
 };
 
