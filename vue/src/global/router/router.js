@@ -34,17 +34,29 @@ const routes = [
       },
     ],
   },
+  // 关于我们
+  {
+    path: "/about",
+    name: "about",
+    component: () => import("@/views/modules/common/about/about.vue"),
+  },
   // 登陆页面
   {
     path: "/login",
     name: "login",
     component: () => import("@/views/modules/common/login/login.vue"),
   },
-  // 图片vue库
+  // echarts
   {
     path: "/echarts",
     name: "echarts",
     component: () => import("@/views/repository/echarts/echarts.vue"),
+  },
+  // echarts
+  {
+    path: "/myEcharts",
+    name: "myEcharts",
+    component: () => import("@/views/repository/echarts/myEcharts.vue"),
   },
   // 富文本编辑器
   {

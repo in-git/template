@@ -6,6 +6,7 @@ let _data = {
   },
   data() {
     return {
+      fab: false,
       drawer: false, //是否打开侧边导航栏
       bannerTitle: config.bannerTitle, //配置导航栏标题
       theme: {

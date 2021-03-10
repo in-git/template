@@ -1,10 +1,10 @@
 ## 安装流程
 
-1. vue add vuetify
+- 安装流程
+  - npm install
+  - npm run serve
 
-2. 替换根目录下src + public + vueconfig 文件(先删除后复制)
-
-3. 安装依赖
+1. 相关依赖
 
    ```
    npm install axois					//网络
@@ -12,7 +12,7 @@
    npm i wangeditor --save				//富文本编辑器
    ```
 
-4. 重要文件详解
+2. 重要文件详解
 
    ```
     - global					全局文件,用于整个项目配置和样式
