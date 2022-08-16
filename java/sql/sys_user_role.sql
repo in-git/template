@@ -1,3 +1,0 @@
-INSERT INTO `sys_user_role`(`id`, `role_id`, `user_id`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755452234, 1278601251755451245, 1278601251755454466, '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);
-INSERT INTO `sys_user_role`(`id`, `role_id`, `user_id`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755453544, 1278601251755452551, 1278601251755451232, '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);
-INSERT INTO `sys_user_role`(`id`, `role_id`, `user_id`, `create_time`, `update_time`, `delete_flag`) VALUES (1278601251755454664, 1278601251755458779, 1278601251755456778, '2020-07-02 16:07:48', '2020-07-02 16:07:48', 0);

@@ -2,6 +2,6 @@
 
 
 ```
-包含项目:java ,uniapp,vue ,vuepress
+包含项目:java ,vue ,vuepress
 ```
 

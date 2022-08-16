@@ -1,17 +1,25 @@
-import Vue from '@/global/config/import.js'
-import App from './App.vue'
-import router from './global/router/router'
-import vuetify from './global/config/vuetify';
-import api from './global/request/api'
-import 'vuetify/dist/vuetify.min.css'
-import echarts from 'echarts'
-Vue.prototype.$echarts = echarts;
+import App from "./App.vue";
+import router from "./router/router.js";
+import Vue from "vue";
+import axios from "./http/module/index.js";
+import store from "./store";
+import components from "./components/index";
+import directives from "./components/directives";
+import vuetify from './plugins/vuetify'
 
-Vue.prototype.$api = api
-Vue.config.productionTip = false
+Vue.use(components);
+Vue.use(directives);
+Vue.use(router);
+Vue.prototype.$http = axios;
+Vue.prototype.$store = store;
+Vue.prototype.$bus = new Vue();
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,
+  $vue: Vue,
+  store,
   vuetify,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App)
+}).$mount("#app");

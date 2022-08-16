@@ -1,0 +1,79 @@
+html,
+body {
+  font-size: 12px;
+  background-color: #f7f7f7; /*背景色*/
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  vertical-align: middle;
+  letter-spacing: 1px;
+  line-height: 24px;
+  user-select: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+select {
+  border: none;
+  outline: none;
+}
+*::-webkit-scrollbar {
+  background-color: #f1f1f5;
+}
+*::-webkit-scrollbar {
+  width: 15px;
+  height: 1px;
+  background-color: #f1f1f5;
+}
+*::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-bottom-left-radius: 1px;
+  background-color: #003049;
+}
+*::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  background-color: #ffffff;
+}
+ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+a {
+  color: #4895ef;
+  text-decoration: none !important;
+  text-shadow: 0 0 15px #4895ef;
+}
+button {
+  transition: 0.2s transform;
+  &:active {
+    transform: translate(1px, 1px);
+  }
+}
+
+td,
+th {
+  text-align: center;
+}
+table {
+  table-layout: fixed;
+}

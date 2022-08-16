@@ -1,0 +1,39 @@
+{
+  "name": "vite-electron",
+  "version": "0.0.0",
+  "author": "jscodev<806574913@qq.com>",
+  "main": "./src/main/main.js",
+  "scripts": {
+    "dev": "concurrently -n=vue,ele -c=green,blue \"vite\" \"electron .\"",
+    "build:all": "concurrently -n=vue:build,ele:build -c=green,blue \"vite build\" \"electron-packager . vite-electron --platform=win32 --electron-version=11.0.4 --arch=x64 --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out ./dist/vite-electron --overwrite --no-package-manager --ignore=(.git)  --icon=logo.ic\""
+  },
+  "dependencies": {
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "@svgdotjs/svg.js": "^3.1.2",
+    "animejs": "^3.2.1",
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "pinia": "^2.0.14",
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@headlessui/vue": "^1.6.1",
+    "@heroicons/vue": "^1.0.6",
+    "@iconify/iconify": "^2.2.1",
+    "@iconify/json": "^2.1.38",
+    "@vitejs/plugin-vue": "^2.3.2",
+    "@vue/cli-plugin-typescript": "~4.5.15",
+    "@vue/compiler-sfc": "^3.0.4",
+    "autoprefixer": "^10.4.7",
+    "concurrently": "^5.3.0",
+    "electron": "^11.0.4",
+    "electron-reloader": "^1.1.0",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "unplugin-auto-import": "^0.7.1",
+    "vite": "^1.0.0-rc.13",
+    "vite-plugin-purge-icons": "^0.8.1"
+  }
+}

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  &::selection {
+    color: var(--primary);
+  }
+
+  & ::-webkit-scrollbar {
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+  }
+
+  & ::-webkit-scrollbar-track {
+    /*滚动条轨道*/
+    border-radius: 10px;
+    background: #f8f8f8;
+  }
+
+  & ::-webkit-scrollbar-thumb {
+    /*滚动条里面的滑块*/
+    background: var(--dark);
+  }
+
+  & ::-webkit-scrollbar-thumb:hover {
+    /*滚动条鼠标事件鼠标放上去出现的事件*/
+    background: #013b52;
+  }
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  height: fit-content;
+}
+
+html,
+body {
+  color: #575757;
+  background-color: #f8f8f8;
+  font-family: '微软雅黑', Courier, monospace;
+}
+
+input,
+textarea {
+  width: fit-content;
+  overflow: unset;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  resize: none;
+}
+
+.animate__animated {
+  animation-duration: 0.5s;
+}
+
+span {
+  vertical-align: middle;
+}
+
+img {
+  display: unset;
+}

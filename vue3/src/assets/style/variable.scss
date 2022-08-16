@@ -1,0 +1,27 @@
+
+:root {
+  --primary: #00b4d8;
+  --secondary: #bde0fe;
+  --dark: #001219;
+  --pink: #ffafcc;
+  --red: #ff006e;
+
+  --gray: #e4e4e4;
+  --bgcolor: #f0f8ff;
+  --radius: 5px;
+
+
+  /* z-index等级 */
+  --z-lv-1: 10;
+  --z-lv-2: 20;
+  --z-lv-3: 30;
+  --z-lv-4: 40;
+  --z-lv-5: 50;
+  --z-lv-6: 60;
+  --z-lv-7: 70;
+  --z-lv-8: 80;
+  --z-lv-9: 90;
+  --z-lv-max: 1000;
+}
+
+$primary:#00b4d8;

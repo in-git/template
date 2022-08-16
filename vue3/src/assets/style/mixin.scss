@@ -1,0 +1,43 @@
+@mixin scrollbar($track: #ededed, $thumb: #013b52, $thumb-over: #022c21) {
+  &::-webkit-scrollbar {
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-track {
+    /*滚动条轨道*/
+    border-radius: 10px;
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    /*滚动条里面的滑块*/
+    background: $thumb;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    /*滚动条鼠标事件鼠标放上去出现的事件*/
+    background: $thumb-over;
+  }
+}
+
+@mixin text-eclipse($num: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; //将对象作为弹性伸缩盒子模型显示。
+  -webkit-box-orient: vertical; // 从上到下垂直排列子元素
+  -webkit-line-clamp: $num;
+}
+
+%flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%background{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
