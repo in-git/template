@@ -5,7 +5,6 @@ import axios from "./http/module/index.js";
 import store from "./store";
 import components from "./components/index";
 import directives from "./components/directives";
-import vuetify from './plugins/vuetify'
 
 Vue.use(components);
 Vue.use(directives);
@@ -20,6 +19,5 @@ new Vue({
   router,
   $vue: Vue,
   store,
-  vuetify,
   render: (h) => h(App)
 }).$mount("#app");

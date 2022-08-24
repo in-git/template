@@ -1,18 +1,9 @@
 <template>
-  <v-app>
-    <router-view></router-view>
-    <!-- 右键菜单 -->
-    <d-contextmenu :contextmenu="contextmenu" v-if="contextmenu.show"></d-contextmenu>
-    <div :is="drawer"></div>
-  </v-app>
+  <div></div>
 </template>
 
 <script>
-import appMixins from "./mixins/app.minxin";
-export default {
-  mixins: [appMixins],
-  mounted() {
-    this.eventSelection();
-  },
-};
+export default {};
 </script>
+
+<style lang="scss" scoped></style>
