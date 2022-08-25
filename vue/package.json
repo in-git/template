@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "in-func": "^1.2.0",
+    "in-less": "^1.0.3",
     "vue": "^2.6.11",
     "vue-draggable-resizable": "^2.3.0",
     "vue-router": "^3.2.0",

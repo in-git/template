@@ -12,12 +12,12 @@ Vue.use(router);
 Vue.prototype.$http = axios;
 Vue.prototype.$store = store;
 Vue.prototype.$bus = new Vue();
-
+import "in-less";
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   $vue: Vue,
   store,
-  render: (h) => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
