@@ -93,8 +93,4 @@ module.exports = {
 
   // 保证构建在cdn上的项目的安全性
   integrity: true,
-
-  transpileDependencies: [
-    'vuetify'
-  ]
 };
