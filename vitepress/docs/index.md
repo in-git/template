@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: PIXI文档
+  name: 文档
   # text: 知识总结及实战笔记
-  tagline: 知识总结及实战笔记
+  tagline: 说明
   actions:
     - theme: brand
       text: 立即进入
