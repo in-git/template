@@ -14,7 +14,7 @@ class Redis{
     }
     qiut() {
         //断开链接
-        this.client.quit()
+        this.client.qiut()
     }
     //添加数据
     async set(key, value, time) {
